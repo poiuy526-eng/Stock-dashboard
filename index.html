@@ -3,1370 +3,696 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>美股機構日報 2026-04-13</title>
+<meta http-equiv="refresh" content="3600">
+<title>🇺🇸 美股機構日報 2026/04/14</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0a0e1a;
-    --card: #111827;
-    --card2: #1a2235;
-    --accent: #60a5fa;
-    --accent2: #818cf8;
-    --green: #34d399;
-    --red: #f87171;
-    --yellow: #fbbf24;
+    --bg2: #0f1629;
+    --bg3: #141d35;
+    --card: #161e36;
+    --card2: #1a2540;
+    --border: #1e2d4a;
+    --accent: #e94560;
+    --accent2: #ff6b8a;
+    --blue: #3b82f6;
+    --blue2: #60a5fa;
+    --green: #10b981;
+    --red: #ef4444;
+    --orange: #f59e0b;
+    --purple: #8b5cf6;
     --text: #e2e8f0;
-    --muted: #94a3b8;
-    --border: #1e293b;
+    --text2: #94a3b8;
+    --text3: #64748b;
+    --gold: #fbbf24;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif; font-size: 14px; }
 
-  /* HEADER */
-  .header { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); padding: 20px 24px 16px; border-bottom: 1px solid var(--border); }
-  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; }
-  .header h1 { font-size: 22px; font-weight: 700; background: linear-gradient(90deg, #60a5fa, #818cf8, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-  .header-meta { text-align: right; font-size: 12px; color: var(--muted); line-height: 1.8; }
-  .header-badges { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
-  .badge { padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
-  .badge-blue { background: #1e3a5f; color: #60a5fa; border: 1px solid #2563eb44; }
-  .badge-green { background: #064e3b; color: #34d399; border: 1px solid #10b98144; }
-  .badge-yellow { background: #451a03; color: #fbbf24; border: 1px solid #d9770644; }
-  .badge-red { background: #450a0a; color: #f87171; border: 1px solid #ef444444; }
-  .badge-purple { background: #2e1065; color: #c4b5fd; border: 1px solid #7c3aed44; }
+  * { margin:0; padding:0; box-sizing:border-box; }
 
-  /* TABS */
-  .tabs-container { background: #080c16; border-bottom: 1px solid var(--border); overflow-x: auto; white-space: nowrap; }
-  .tabs { display: inline-flex; padding: 0 16px; }
-  .tab-btn { padding: 12px 16px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 13px; font-weight: 500; border-bottom: 2px solid transparent; transition: all .2s; white-space: nowrap; }
-  .tab-btn:hover { color: var(--text); }
-  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
 
-  /* CONTENT */
-  .content { max-width: 1400px; margin: 0 auto; padding: 20px 16px; }
-  .tab-panel { display: none; }
-  .tab-panel.active { display: block; }
+  /* ── 背景網格紋理 ── */
+  body::before {
+    content:'';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
 
-  /* CARDS */
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 16px; }
-  .card-title { font-size: 13px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; margin-bottom: 12px; }
-  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  /* ── Header ── */
+  .site-header {
+    background: linear-gradient(135deg, #0a0e1a 0%, #0f1629 50%, #141028 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+  }
 
-  /* SIGNAL LIGHTS */
-  .signal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
-  .signal-card { background: var(--card2); border-radius: 8px; padding: 12px; border: 1px solid var(--border); position: relative; overflow: hidden; }
-  .signal-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
-  .signal-green::before { background: var(--green); }
-  .signal-yellow::before { background: var(--yellow); }
-  .signal-red::before { background: var(--red); }
-  .signal-label { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
-  .signal-value { font-size: 18px; font-weight: 700; }
-  .signal-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
-  .signal-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
-  .dot-green { background: var(--green); box-shadow: 0 0 6px var(--green); }
-  .dot-yellow { background: var(--yellow); box-shadow: 0 0 6px var(--yellow); }
-  .dot-red { background: var(--red); box-shadow: 0 0 6px var(--red); }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
 
-  /* MARKET SNAPSHOT */
-  .index-card { background: var(--card2); border-radius: 8px; padding: 14px; border: 1px solid var(--border); }
-  .index-name { font-size: 12px; color: var(--muted); }
-  .index-val { font-size: 20px; font-weight: 700; margin: 4px 0; }
-  .index-changes { display: flex; gap: 8px; flex-wrap: wrap; }
-  .chg { font-size: 11px; padding: 2px 6px; border-radius: 4px; font-weight: 600; }
-  .chg-g { background: #064e3b55; color: var(--green); }
-  .chg-r { background: #450a0a55; color: var(--red); }
-  .chg-y { background: #45150355; color: var(--yellow); }
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
-  /* TABLE */
-  table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  th { background: #0f172a; color: var(--muted); font-weight: 600; padding: 10px 12px; text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .4px; border-bottom: 1px solid var(--border); }
-  td { padding: 10px 12px; border-bottom: 1px solid #1e293b66; vertical-align: middle; }
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: #ffffff06; }
-  .ticker { font-weight: 700; color: var(--accent); font-size: 14px; }
+  .logo-dot { width:8px; height:8px; border-radius:50%; background:var(--accent); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.5; transform:scale(1.3); } }
 
-  /* RS BAR */
-  .rs-bar-wrap { background: #0f172a; border-radius: 20px; height: 8px; overflow: hidden; width: 100%; min-width: 80px; }
-  .rs-bar { height: 100%; border-radius: 20px; width: 0; transition: width 1s cubic-bezier(.4,0,.2,1); }
-  .rs-score { font-weight: 700; font-size: 16px; }
+  .header-meta {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text3);
+    font-family: 'JetBrains Mono', monospace;
+  }
 
-  /* DEEP SCAN */
-  .stock-section { background: var(--card); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 16px; overflow: hidden; }
-  .stock-header { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--card2); border-bottom: 1px solid var(--border); flex-wrap: wrap; }
-  .stock-body { padding: 16px; }
-  .metric-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
-  .metric-box { background: #0f172a; border-radius: 8px; padding: 12px; border: 1px solid var(--border); }
-  .metric-label { font-size: 10px; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .5px; }
-  .metric-val { font-size: 15px; font-weight: 700; }
-  .metric-note { font-size: 10px; color: var(--muted); margin-top: 3px; }
+  .live-badge {
+    background: rgba(16,185,129,0.15);
+    border: 1px solid var(--green);
+    color: var(--green);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
 
-  /* EARNINGS */
-  .timeline { position: relative; padding-left: 24px; }
-  .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--accent2), #6366f122); }
-  .timeline-item { position: relative; padding: 12px 0 12px 20px; border-bottom: 1px solid #1e293b44; }
-  .timeline-item:last-child { border-bottom: none; }
-  .timeline-dot { position: absolute; left: -22px; top: 18px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid; }
-  .tl-urgent { border-color: var(--red); background: #450a0a; }
-  .tl-soon { border-color: var(--yellow); background: #451a03; }
-  .tl-normal { border-color: var(--accent); background: #1e3a5f; }
-  .tl-far { border-color: #475569; background: #1e293b; }
-  .tl-date { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
-  .tl-company { font-size: 15px; font-weight: 700; }
-  .tl-detail { font-size: 12px; color: var(--muted); margin-top: 4px; }
-  .tl-tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; margin-right: 4px; }
-  .tag-urgent { background: #450a0a; color: var(--red); }
-  .tag-soon { background: #451a03; color: var(--yellow); }
-  .tag-normal { background: #1e3a5f; color: var(--accent); }
+  /* ── 日期選擇器 ── */
+  .date-nav {
+    display: flex;
+    gap: 8px;
+    padding: 10px 32px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .date-nav::-webkit-scrollbar { display:none; }
 
-  /* RUMOR */
-  .rumor-card { background: var(--card2); border-radius: 8px; padding: 14px; margin-bottom: 10px; border-left: 3px solid; }
-  .rumor-true { border-left-color: var(--green); }
-  .rumor-partial { border-left-color: var(--yellow); }
-  .rumor-false { border-left-color: var(--red); }
-  .rumor-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-  .rumor-icon { font-size: 16px; }
-  .rumor-claim { font-weight: 600; font-size: 14px; }
-  .verdict { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; margin-left: auto; }
-  .verdict-true { background: #064e3b; color: var(--green); }
-  .verdict-partial { background: #451a03; color: var(--yellow); }
-  .verdict-false { background: #450a0a; color: var(--red); }
-  .rumor-body { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .date-btn {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text2);
+    padding: 6px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .date-btn:hover { border-color: var(--blue); color: var(--blue2); }
+  .date-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    font-weight: 700;
+  }
 
-  /* TRADE ORDERS */
-  .trade-card { background: var(--card2); border-radius: 8px; padding: 14px; margin-bottom: 10px; border: 1px solid var(--border); }
-  .trade-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
-  .trade-action { padding: 3px 10px; border-radius: 4px; font-size: 12px; font-weight: 700; }
-  .action-buy { background: #064e3b; color: var(--green); }
-  .action-hold { background: #1e3a5f; color: var(--accent); }
-  .action-watch { background: #451a03; color: var(--yellow); }
-  .trade-prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .price-box { background: #0f172a; border-radius: 6px; padding: 8px 10px; }
-  .price-label { font-size: 10px; color: var(--muted); margin-bottom: 2px; }
-  .price-val { font-size: 14px; font-weight: 700; }
-  .price-entry { color: var(--accent); }
-  .price-target { color: var(--green); }
-  .price-stop { color: var(--red); }
+  /* ── 主容器 ── */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    position: relative;
+    z-index: 1;
+  }
 
-  /* WEEKLY */
-  .week-stat { background: var(--card2); border-radius: 8px; padding: 14px; border: 1px solid var(--border); text-align: center; }
-  .week-stat-val { font-size: 24px; font-weight: 700; }
-  .week-stat-label { font-size: 11px; color: var(--muted); margin-top: 4px; }
+  /* ── 報告標題 ── */
+  .report-hero {
+    background: linear-gradient(135deg, var(--card) 0%, var(--card2) 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 40px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
 
-  /* ALERT BOX */
-  .alert { border-radius: 8px; padding: 12px 14px; margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; font-size: 13px; }
-  .alert-warn { background: #451a0322; border: 1px solid #d97706aa; color: #fbbf24; }
-  .alert-info { background: #1e3a5f22; border: 1px solid #2563ebaa; color: #93c5fd; }
-  .alert-danger { background: #450a0a22; border: 1px solid #ef4444aa; color: #fca5a5; }
-  .alert-success { background: #064e3b22; border: 1px solid #10b981aa; color: #6ee7b7; }
-  .alert-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .report-hero::before {
+    content: '日報';
+    position: absolute;
+    right: -10px;
+    top: -20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 140px;
+    color: rgba(255,255,255,0.02);
+    pointer-events: none;
+    letter-spacing: -5px;
+  }
 
-  /* FOOTER */
-  footer { text-align: center; padding: 20px; font-size: 11px; color: #475569; border-top: 1px solid var(--border); margin-top: 20px; }
-  footer a { color: var(--accent); text-decoration: none; }
+  .report-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    letter-spacing: 4px;
+    color: white;
+    margin-bottom: 8px;
+    border: none;
+    padding: 0;
+    background: none;
+  }
 
-  /* SCROLLBAR */
-  ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: #2d3748; border-radius: 3px; }
+  .report-hero .subtitle {
+    color: var(--text2);
+    font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
 
-  /* RESPONSIVE */
+  .report-hero .subtitle span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .accent-line {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--purple));
+    border-radius: 2px;
+    margin: 12px 0;
+  }
+
+  /* ── 報告內容樣式 ── */
+  .report-body { line-height: 1.8; }
+
+  .report-body h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 3px;
+    color: white;
+    background: linear-gradient(135deg, var(--card2), var(--bg3));
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    padding: 16px 24px;
+    border-radius: 8px;
+    margin: 40px 0 20px;
+  }
+
+  .report-body h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--blue2);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    margin: 32px 0 16px;
+  }
+
+  .report-body h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+    margin: 24px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .report-body h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text2);
+    margin: 16px 0 8px;
+  }
+
+  .report-body p {
+    color: var(--text2);
+    margin: 8px 0;
+    line-height: 1.8;
+  }
+
+  .report-body strong { color: var(--text); font-weight: 700; }
+  .report-body em { color: var(--accent2); font-style: normal; }
+  .report-body code {
+    background: rgba(59,130,246,0.1);
+    border: 1px solid rgba(59,130,246,0.2);
+    color: var(--blue2);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+  }
+
+  .report-body pre {
+    background: #0d1117;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    overflow-x: auto;
+    margin: 16px 0;
+  }
+  .report-body pre code {
+    background: none;
+    border: none;
+    color: #e6edf3;
+    font-size: 13px;
+  }
+
+  .report-body blockquote {
+    background: rgba(59,130,246,0.08);
+    border-left: 3px solid var(--blue);
+    padding: 12px 20px;
+    border-radius: 0 8px 8px 0;
+    color: var(--text2);
+    margin: 12px 0;
+    font-style: italic;
+  }
+
+  .report-body hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+
+  .report-body li {
+    color: var(--text2);
+    padding: 3px 0 3px 20px;
+    position: relative;
+  }
+  .report-body li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+  .report-body li.num::before {
+    content: none;
+  }
+
+  /* ── 表格 ── */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  .report-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .report-body th {
+    background: var(--bg3);
+    color: var(--text);
+    font-weight: 700;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid var(--accent);
+    white-space: nowrap;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .report-body td {
+    padding: 9px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: var(--text2);
+    vertical-align: top;
+  }
+
+  .report-body tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+  .report-body tr:hover td { background: rgba(59,130,246,0.05); }
+
+  /* ── 側邊歷史列表 ── */
+  .layout { display: flex; gap: 24px; align-items: flex-start; }
+  .main-content { flex: 1; min-width: 0; }
+  .sidebar {
+    width: 200px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 120px;
+  }
+
+  .sidebar-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  .sidebar-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text3);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .history-item {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: 4px;
+    border: 1px solid transparent;
+  }
+  .history-item:hover { background: var(--bg3); border-color: var(--border); }
+  .history-item.active { background: rgba(233,69,96,0.1); border-color: var(--accent); }
+  .history-date { font-size: 12px; font-weight: 700; font-family: 'JetBrains Mono', monospace; color: var(--text); }
+  .history-day { font-size: 11px; color: var(--text3); }
+
+  /* ── 頁尾 ── */
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    color: var(--text3);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+  }
+
+  /* ── RWD ── */
   @media (max-width: 768px) {
-    .grid-4 { grid-template-columns: repeat(2, 1fr); }
-    .grid-3 { grid-template-columns: repeat(2, 1fr); }
-    .grid-2 { grid-template-columns: 1fr; }
-    .signal-grid { grid-template-columns: repeat(2, 1fr); }
-    .trade-prices { grid-template-columns: repeat(2, 1fr); }
-    .header h1 { font-size: 18px; }
-    table { font-size: 12px; }
-    th, td { padding: 8px; }
-    .metric-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 480px) {
-    .grid-4, .grid-3 { grid-template-columns: 1fr; }
-    .signal-grid { grid-template-columns: repeat(2, 1fr); }
+    .layout { flex-direction: column; }
+    .sidebar { width: 100%; position: static; }
+    .report-hero { padding: 24px 20px; }
+    .report-hero h1 { font-size: 30px; }
+    .container { padding: 16px; }
+    .header-top { padding: 12px 16px; }
+    .date-nav { padding: 10px 16px; }
   }
 
-  /* SECTOR TABLE */
-  .sector-row-g td:last-child { color: var(--green); font-weight: 600; }
-  .sector-row-r td:last-child { color: var(--red); font-weight: 600; }
-
-  /* divider */
-  .divider { height: 1px; background: var(--border); margin: 16px 0; }
-
-  .tag-new { background: #312e81; color: #a5b4fc; padding: 2px 6px; border-radius: 3px; font-size: 10px; margin-left: 4px; }
-  .warning-flag { background: #451a03; color: #fbbf24; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
-  .special-flag { background: #2e1065; color: #c4b5fd; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600; }
+  /* ── 載入動畫 ── */
+  .fade-in { animation: fadeIn 0.5s ease forwards; }
+  @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<div class="header">
+<!-- Header -->
+<header class="site-header">
   <div class="header-top">
-    <div>
-      <h1>🏦 美股機構日報</h1>
-      <div style="font-size:12px; color:var(--muted); margin-top:4px;">U.S. Institutional Daily Research Report</div>
+    <div class="logo">
+      <div class="logo-dot"></div>
+      MARKET DAILY
     </div>
     <div class="header-meta">
-      <div>📅 報告日期：<strong>2026-04-13 (週一)</strong></div>
-      <div>📊 資料截至：<strong>2026-04-10 (收盤)</strong></div>
-      <div>🤖 AI 生成 | 僅供參考，非投資建議</div>
+      <span class="live-badge">● LIVE</span>
+      <span>更新：2026/04/14 週二</span>
+      <span>數據：Bigdata.com × Claude</span>
     </div>
   </div>
-  <div class="header-badges">
-    <span class="badge badge-green">✅ VIX 19.23 低恐慌</span>
-    <span class="badge badge-red">🔴 油價 $96.57 通膨警戒</span>
-    <span class="badge badge-yellow">⚡ TSM 財報 3 天後 Apr 16</span>
-    <span class="badge badge-purple">🤖 AI 關稅戰開打 25%</span>
-    <span class="badge badge-blue">📈 Nasdaq 週漲 +4.02%</span>
-    <span class="badge badge-yellow">⚠️ VRT 股價超越分析師目標</span>
+  <div class="date-nav" id="dateNav">
+    <!-- 由 JS 動態生成 -->
   </div>
-</div>
+</header>
 
-<!-- TABS -->
-<div class="tabs-container">
-  <div class="tabs">
-    <button class="tab-btn active" onclick="switchTab('macro',this)">🌐 宏觀監控</button>
-    <button class="tab-btn" onclick="switchTab('market',this)">📊 全球市場</button>
-    <button class="tab-btn" onclick="switchTab('rs',this)">🏆 RS 評分</button>
-    <button class="tab-btn" onclick="switchTab('scan',this)">🔬 深度掃描</button>
-    <button class="tab-btn" onclick="switchTab('earnings',this)">📅 財報行事曆</button>
-    <button class="tab-btn" onclick="switchTab('rumor',this)">🔎 謠言破解</button>
-    <button class="tab-btn" onclick="switchTab('orders',this)">📋 交易指令</button>
-    <button class="tab-btn" onclick="switchTab('weekly',this)">📝 週報摘要</button>
-  </div>
-</div>
+<!-- Main -->
+<div class="container">
+  <div class="layout">
 
-<div class="content">
-
-<!-- ==================== TAB 1: 宏觀監控 ==================== -->
-<div id="tab-macro" class="tab-panel active">
-
-  <div class="alert alert-warn">
-    <span class="alert-icon">⚠️</span>
-    <div><strong>本週最高警戒：</strong>原油 WTI $96.57（YTD +67.45%）持續推升通膨預期；Trump AI 晶片進口關稅 25% 已生效，半導體供應鏈重組壓力上升。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">🚦 宏觀信號燈 — 2026-04-10</div>
-    <div class="signal-grid">
-      <div class="signal-card signal-green">
-        <div class="signal-label"><span class="signal-dot dot-green"></span>VIX 恐慌指數</div>
-        <div class="signal-value" style="color:var(--green)">19.23</div>
-        <div class="signal-sub">日 -1.33% | YTD +28.63%</div>
-        <div class="signal-sub" style="color:var(--green); font-weight:600;">✅ 低於 20，市場偏樂觀</div>
-      </div>
-      <div class="signal-card signal-yellow">
-        <div class="signal-label"><span class="signal-dot dot-yellow"></span>10Y 美債殖利率</div>
-        <div class="signal-value" style="color:var(--yellow)">4.31%</div>
-        <div class="signal-sub">上週 4.28% → 上升</div>
-        <div class="signal-sub" style="color:var(--yellow); font-weight:600;">🟡 中性偏緊，觀察 4.5% 壓力</div>
-      </div>
-      <div class="signal-card signal-red">
-        <div class="signal-label"><span class="signal-dot dot-red"></span>WTI 原油</div>
-        <div class="signal-value" style="color:var(--red)">$96.57</div>
-        <div class="signal-sub">YTD +67.45%</div>
-        <div class="signal-sub" style="color:var(--red); font-weight:600;">🔴 高通膨風險，注意 Fed 反應</div>
-      </div>
-      <div class="signal-card signal-yellow">
-        <div class="signal-label"><span class="signal-dot dot-yellow"></span>黃金 Gold</div>
-        <div class="signal-value" style="color:var(--yellow)">$4,787.40</div>
-        <div class="signal-sub">YTD +9.13%</div>
-        <div class="signal-sub" style="color:var(--yellow); font-weight:600;">🟡 避險需求提升，觀察破 $5K</div>
-      </div>
-      <div class="signal-card signal-yellow">
-        <div class="signal-label"><span class="signal-dot dot-yellow"></span>比特幣 BTC</div>
-        <div class="signal-value" style="color:var(--yellow)">$70,735</div>
-        <div class="signal-sub">YTD -20.29%</div>
-        <div class="signal-sub" style="color:var(--yellow); font-weight:600;">🟡 高波動，風險資產代理</div>
-      </div>
-      <div class="signal-card signal-green">
-        <div class="signal-label"><span class="signal-dot dot-green"></span>SMH 半導體 ETF</div>
-        <div class="signal-value" style="color:var(--green)">$436.88</div>
-        <div class="signal-sub">日 +1.52% (Apr 11)</div>
-        <div class="signal-sub" style="color:var(--green); font-weight:600;">✅ 週漲 5%+，AI 動能強</div>
-      </div>
-      <div class="signal-card signal-yellow">
-        <div class="signal-label"><span class="signal-dot dot-yellow"></span>S&amp;P 500 YTD</div>
-        <div class="signal-value" style="color:var(--yellow)">-0.42%</div>
-        <div class="signal-sub">6,816.89 | 1Y +27.10%</div>
-        <div class="signal-sub" style="color:var(--yellow); font-weight:600;">🟡 年初至今略負，待突破</div>
-      </div>
-      <div class="signal-card signal-green">
-        <div class="signal-label"><span class="signal-dot dot-green"></span>AI 動能評分</div>
-        <div class="signal-value" style="color:var(--green)">🟢 強勁</div>
-        <div class="signal-sub">CoreWeave-Anthropic 大單</div>
-        <div class="signal-sub" style="color:var(--green); font-weight:600;">✅ 資本支出週期持續</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">📋 宏觀主題分析</div>
-    <div class="grid-2">
-      <div>
-        <div style="font-weight:600; color:var(--accent); margin-bottom:8px;">🤖 AI 基礎建設超級週期</div>
-        <div style="color:var(--muted); line-height:1.8; font-size:13px;">
-          CoreWeave 與 Anthropic 簽署多年雲端算力合約，顯示 AI 資本支出週期仍在加速階段。VRT（Vertiv）電源基礎設施需求激增，年漲幅達 +312%。IREN 礦業算力轉型獲市場認可，1Y +584%。SMH 週漲 5%，Broadcom +5%、Micron +7%，半導體族群領漲大盤。
-        </div>
-      </div>
-      <div>
-        <div style="font-weight:600; color:var(--red); margin-bottom:8px;">⚠️ 關稅戰 & 通膨雙重風險</div>
-        <div style="color:var(--muted); line-height:1.8; font-size:13px;">
-          Trump 政府宣布對 AI 晶片進口課徵 25% 關稅，直接衝擊台積電（TSM）美國業務成本與晶圓代工定價。WTI 原油 $96.57（YTD +67%）持續推升通膨，壓縮 Fed 降息空間。10Y 殖利率 4.31% 維持高位，估值壓力對成長股不利。
-        </div>
-      </div>
-    </div>
-    <div class="divider"></div>
-    <div style="font-weight:600; color:var(--yellow); margin-bottom:8px;">📊 本週重點日曆</div>
-    <div class="grid-4" style="gap:8px;">
-      <div style="background:#0f172a; border-radius:6px; padding:10px; border:1px solid var(--border);">
-        <div style="font-size:11px; color:var(--red); font-weight:700;">Apr 16 ⚡ 緊急</div>
-        <div style="font-weight:600; margin:3px 0;">TSM 台積電財報</div>
-        <div style="font-size:11px; color:var(--muted);">Q1 2026 業績 | 指引最關鍵</div>
-      </div>
-      <div style="background:#0f172a; border-radius:6px; padding:10px; border:1px solid var(--border);">
-        <div style="font-size:11px; color:var(--yellow); font-weight:700;">Apr 22</div>
-        <div style="font-weight:600; margin:3px 0;">TSLA + VRT 財報</div>
-        <div style="font-size:11px; color:var(--muted);">電動車 & AI 電源雙重看點</div>
-      </div>
-      <div style="background:#0f172a; border-radius:6px; padding:10px; border:1px solid var(--border);">
-        <div style="font-size:11px; color:var(--accent); font-weight:700;">Apr 29</div>
-        <div style="font-weight:600; margin:3px 0;">GOOGL 財報</div>
-        <div style="font-size:11px; color:var(--muted);">廣告 + Gemini AI 收入</div>
-      </div>
-      <div style="background:#0f172a; border-radius:6px; padding:10px; border:1px solid var(--border);">
-        <div style="font-size:11px; color:var(--muted); font-weight:700;">May 7–Jun 2</div>
-        <div style="font-weight:600; margin:3px 0;">VST / CRCL / IREN / CRWD</div>
-        <div style="font-size:11px; color:var(--muted);">次季財報季持續</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ==================== TAB 2: 全球市場 ==================== -->
-<div id="tab-market" class="tab-panel">
-
-  <div class="card">
-    <div class="card-title">📈 美國主要指數 — 2026-04-10 收盤</div>
-    <div class="grid-4">
-      <div class="index-card">
-        <div class="index-name">S&amp;P 500</div>
-        <div class="index-val">6,816.89</div>
-        <div class="index-changes">
-          <span class="chg chg-r">1D -0.11%</span>
-          <span class="chg chg-g">5D +3.02%</span>
-          <span class="chg chg-r">YTD -0.42%</span>
-          <span class="chg chg-g">1Y +27.10%</span>
-        </div>
-      </div>
-      <div class="index-card">
-        <div class="index-name">NASDAQ 100</div>
-        <div class="index-val">22,902.90</div>
-        <div class="index-changes">
-          <span class="chg chg-g">1D +0.35%</span>
-          <span class="chg chg-g">5D +4.02%</span>
-          <span class="chg chg-r">YTD -1.46%</span>
-          <span class="chg chg-g">1Y +36.94%</span>
-        </div>
-      </div>
-      <div class="index-card">
-        <div class="index-name">VIX 恐慌指數</div>
-        <div class="index-val" style="color:var(--green)">19.23</div>
-        <div class="index-changes">
-          <span class="chg chg-r">1D -1.33%</span>
-          <span class="chg chg-g">YTD +28.63%</span>
-          <span class="chg chg-g">訊號 ✅</span>
-        </div>
-      </div>
-      <div class="index-card">
-        <div class="index-name">SMH 半導體 ETF</div>
-        <div class="index-val" style="color:var(--green)">~$436.88</div>
-        <div class="index-changes">
-          <span class="chg chg-g">1D +1.52%</span>
-          <span class="chg chg-g">週 +5%+</span>
-          <span class="chg chg-g">AI 動能強</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">🌏 亞太市場 & 商品</div>
-    <table>
-      <thead><tr><th>資產</th><th>最新價格</th><th>日漲跌</th><th>YTD</th><th>1Y</th><th>備註</th></tr></thead>
-      <tbody>
-        <tr><td class="ticker">TSM ADR</td><td>$370.60 USD</td><td class="chg-g" style="color:var(--green)">+1.40% (Apr 12)</td><td style="color:var(--green)">+26.18%</td><td style="color:var(--green)">+131.21%</td><td style="color:var(--yellow)">⚡ 財報 Apr 16</td></tr>
-        <tr><td class="ticker">TSM TWD</td><td>NT$2,000</td><td>—</td><td style="color:var(--green)">+26.18%</td><td style="color:var(--green)">+131.21%</td><td style="color:var(--muted)">台灣交易所</td></tr>
-        <tr><td class="ticker">BTC/USD</td><td>$70,735.95</td><td style="color:var(--muted)">波動大</td><td style="color:var(--red)">-20.29%</td><td style="color:var(--muted)">—</td><td style="color:var(--yellow)">🟡 觀望</td></tr>
-        <tr><td class="ticker">Gold</td><td>$4,787.40</td><td style="color:var(--green)">上升趨勢</td><td style="color:var(--green)">+9.13%</td><td style="color:var(--muted)">—</td><td style="color:var(--yellow)">🟡 避險需求</td></tr>
-        <tr><td class="ticker">WTI 原油</td><td>$96.57</td><td style="color:var(--muted)">—</td><td style="color:var(--red)">+67.45%</td><td style="color:var(--muted)">—</td><td style="color:var(--red)">🔴 通膨警戒</td></tr>
-        <tr><td class="ticker">10Y 美債</td><td>4.31%</td><td style="color:var(--muted)">上升</td><td style="color:var(--yellow)">+28.63bps</td><td style="color:var(--muted)">—</td><td style="color:var(--yellow)">🟡 關注 4.5%</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">🔄 板塊輪動 (週表現)</div>
-      <table>
-        <thead><tr><th>板塊</th><th>代表 ETF</th><th>週漲跌</th><th>趨勢</th></tr></thead>
-        <tbody>
-          <tr class="sector-row-g"><td>半導體</td><td>SMH</td><td style="color:var(--green)">+5%+</td><td>↑ 強勢領漲</td></tr>
-          <tr class="sector-row-g"><td>科技成長</td><td>QQQ</td><td style="color:var(--green)">+4.02%</td><td>↑ 回升</td></tr>
-          <tr class="sector-row-g"><td>AI 基礎建設</td><td>VRT/IREN</td><td style="color:var(--green)">+強</td><td>↑ 超強動能</td></tr>
-          <tr class="sector-row-g"><td>大盤</td><td>SPY</td><td style="color:var(--green)">+3.02%</td><td>↑ 反彈</td></tr>
-          <tr class="sector-row-r"><td>電動車</td><td>TSLA</td><td style="color:var(--red)">-持平</td><td>→ 震盪</td></tr>
-          <tr class="sector-row-r"><td>網路安全</td><td>CRWD</td><td style="color:var(--red)">弱勢</td><td>↓ 落後</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="card">
-      <div class="card-title">⚡ 因子表現分析</div>
-      <table>
-        <thead><tr><th>因子</th><th>表現</th><th>說明</th></tr></thead>
-        <tbody>
-          <tr><td>動能因子 (Momentum)</td><td style="color:var(--green)">✅ 強</td><td style="color:var(--muted)">AI/半導體持續領漲</td></tr>
-          <tr><td>成長因子 (Growth)</td><td style="color:var(--green)">✅ 強</td><td style="color:var(--muted)">EPS 上修預期升溫</td></tr>
-          <tr><td>品質因子 (Quality)</td><td style="color:var(--yellow)">🟡 中性</td><td style="color:var(--muted)">大公司仍受青睞</td></tr>
-          <tr><td>價值因子 (Value)</td><td style="color:var(--red)">⚠️ 弱</td><td style="color:var(--muted)">高利率環境壓制</td></tr>
-          <tr><td>低波動 (Low-Vol)</td><td style="color:var(--red)">⚠️ 弱</td><td style="color:var(--muted)">風險偏好上升</td></tr>
-          <tr><td>小型股 (Small-Cap)</td><td style="color:var(--red)">⚠️ 落後</td><td style="color:var(--muted)">資金集中龍頭</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<!-- ==================== TAB 3: RS 評分 ==================== -->
-<div id="tab-rs" class="tab-panel">
-
-  <div class="alert alert-info">
-    <span class="alert-icon">ℹ️</span>
-    <div><strong>RS 評分方法：</strong>綜合 1Y、YTD、3M 相對強弱，以 0–100 分表示個股相對市場的動能排名。90+ 極強動能；70–89 強勢；50–69 中性；&lt;50 落後大盤。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">🏆 持倉 RS 評分排行榜 — 2026-04-10</div>
-    <table>
-      <thead>
-        <tr>
-          <th>排名</th>
-          <th>股票</th>
-          <th>RS 分數</th>
-          <th>動能條</th>
-          <th>現價</th>
-          <th>1Y</th>
-          <th>YTD</th>
-          <th>評級</th>
-          <th>分析師目標</th>
-          <th>訊號</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong style="color:#fbbf24">🥇 1</strong></td>
-          <td class="ticker">IREN</td>
-          <td><span class="rs-score" style="color:var(--green)">96</span></td>
-          <td><div class="rs-bar-wrap"><div class="rs-bar" data-score="96" style="background:linear-gradient(90deg,#34d399,#10b981)"></div></div></td>
-          <td>$39.32</td>
-          <td style="color:var(--green)">+583.83%</td>
-          <td style="color:var(--red)">-7.92%</td>
-          <td><span class="badge badge-green">買進</span></td>
-          <td style="color:var(--green)">$75.50</td>
-          <td>🟢 超強</td>
-        </tr>
-        <tr>
-          <td><strong style="color:#94a3b8">🥈 2</strong></td>
-          <td class="ticker">VRT</td>
-          <td><span class="rs-score" style="color:var(--green)">90</span></td>
-          <td><div class="rs-bar-wrap"><div class="rs-bar" data-score="90" style="background:linear-gradient(90deg,#34d399,#10b981)"></div></div></td>
-          <td>$295.11</td>
-          <td style="color:var(--green)">+312.34%</td>
-          <td style="color:var(--green)">+68.05%</td>
-          <td><span class="badge badge-green">買進</span></td>
-          <td style="color:var(--red)">$265.18 ⚠️</td>
-          <td><span class="warning-flag">目標過時，預計財報後上修</span></td>
-        </tr>
-        <tr>
-          <td><strong style="color:#b45309">🥉 3</strong></td>
-          <td class="ticker">CRCL</td>
-          <td><span class="rs-score" style="color:var(--green)">82</span></td>
-          <td><div class="rs-bar-wrap"><div class="rs-bar" data-score="82" style="background:linear-gradient(90deg,#60a5fa,#3b82f6)"></div></div></td>
-          <td>$88.04</td>
-          <td style="color:var(--green)">+184.00%</td>
-          <td style="color:var(--green)">+5.48%</td>
-          <td><span class="badge badge-green">買進</span></td>
-          <td style="color:var(--green)">$115.11</td>
-          <td>🔵 強勢</td>
-        </tr>
-        <tr>
-          <td><strong>4</strong></td>
-          <td class="ticker">TSM</td>
-          <td><span class="rs-score" style="color:var(--accent)">78</span></td>
-          <td><div class="rs-bar-wrap"><div class="rs-bar" data-score="78" style="background:linear-gradient(90deg,#60a5fa,#3b82f6)"></div></div></td>
-          <td>NT$2,000 / $370 ADR</td>
-          <td style="color:var(--green)">+131.21%</td>
-          <td style="color:var(--green)">+26.18%</td>
-          <td><span class="badge badge-green">買進</span></td>
-          <td style="color:var(--green)">目標上修中</td>
-          <td>⚡ 財報 Apr 16</td>
-        </tr>
-        <tr>
-          <td><strong>5</strong></td>
-          <td class="ticker">GOOGL</td>
-          <td><span class="rs-score" style="color:var(--accent)">70</span></td>
-          <td><div class="rs-bar-wrap"><div class="rs-bar" data-score="70" style="background:linear-gradient(90deg,#818cf8,#6366f1)"></div></div></td>
-          <td>$317.24</td>
-          <td style="color:var(--green)">+99.43%</td>
-          <td style="color:var(--green)">+0.66%</td>
-          <td><span class="badge badge-green">買進</span></td>
-          <td style="color:var(--green)">$375.92</td>
-          <td>🔵 中強</td>
-        </tr>
-        <tr>
-          <td><strong>6</strong></td>
-          <td class="ticker">TSLA</td>
-          <td><span class="rs-score" style="color:var(--yellow)">50</span></td>
-          <td><div class="rs-bar-wrap"><div class="rs-bar" data-score="50" style="background:linear-gradient(90deg,#fbbf24,#f59e0b)"></div></div></td>
-          <td>$348.95</td>
-          <td style="color:var(--green)">+38.28%</td>
-          <td style="color:var(--red)">-20.34%</td>
-          <td><span class="badge badge-blue">持有</span></td>
-          <td style="color:var(--green)">$444.00</td>
-          <td>🟡 中性</td>
-        </tr>
-        <tr>
-          <td><strong>7</strong></td>
-          <td class="ticker">VST</td>
-          <td><span class="rs-score" style="color:var(--yellow)">48</span></td>
-          <td><div class="rs-bar-wrap"><div class="rs-bar" data-score="48" style="background:linear-gradient(90deg,#fbbf24,#f59e0b)"></div></div></td>
-          <td>$154.73</td>
-          <td style="color:var(--green)">+37.31%</td>
-          <td style="color:var(--red)">-6.35%</td>
-          <td><span class="badge badge-green">買進</span></td>
-          <td style="color:var(--green)">$230.56</td>
-          <td>🟡 回檔整理</td>
-        </tr>
-        <tr>
-          <td><strong>8</strong></td>
-          <td class="ticker">CRWD</td>
-          <td><span class="rs-score" style="color:var(--red)">25</span></td>
-          <td><div class="rs-bar-wrap"><div class="rs-bar" data-score="25" style="background:linear-gradient(90deg,#f87171,#ef4444)"></div></div></td>
-          <td>$379.02</td>
-          <td style="color:var(--green)">+0.10%</td>
-          <td style="color:var(--red)">-16.44%</td>
-          <td><span class="badge badge-green">買進</span></td>
-          <td style="color:var(--green)">$535.65</td>
-          <td>🔴 弱勢，逢低布局</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="alert alert-warn" style="margin-top:0;">
-    <span class="alert-icon">⚠️</span>
-    <div><strong>VRT 特別提示：</strong>目前股價 $295.11 已超越分析師共識目標 $265.18，超漲幅度 +11.3%。這表示市場定價已領先賣方分析，預計 Apr 22 財報後目標價將大幅上修。<span class="warning-flag">目標過時，預計財報後上修</span></div>
-  </div>
-</div>
-
-<!-- ==================== TAB 4: 深度掃描 ==================== -->
-<div id="tab-scan" class="tab-panel">
-
-  <!-- TSM -->
-  <div class="stock-section">
-    <div class="stock-header">
-      <div>
-        <span class="ticker" style="font-size:20px;">TSM</span>
-        <span style="color:var(--muted); font-size:13px; margin-left:8px;">台積電 TSMC</span>
-        <span class="tag-urgent" style="margin-left:8px; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:700;">⚡ 財報 3 天後！Apr 16</span>
-      </div>
-      <div style="margin-left:auto; display:flex; gap:8px; flex-wrap:wrap;">
-        <span class="badge badge-green">買進</span>
-        <span class="badge badge-yellow">RS 78</span>
-      </div>
-    </div>
-    <div class="stock-body">
-      <div class="alert alert-danger" style="margin-bottom:12px;">
-        <span class="alert-icon">⚡</span>
-        <div><strong>高緊急度：</strong>TSM Q1 2026 財報將於 Apr 16 公布。重點關注：AI CoWoS 產能利用率、2026 CoWoS 擴產指引、N2/N3 良率，以及 Trump 關稅對 Arizona Fab 成本影響。預期 EPS 上調空間大。</div>
-      </div>
-      <div class="metric-grid">
-        <div class="metric-box">
-          <div class="metric-label">ADR 現價</div>
-          <div class="metric-val" style="color:var(--green)">$370.60</div>
-          <div class="metric-note">Apr 12, 2026</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">台股現價</div>
-          <div class="metric-val" style="color:var(--accent)">NT$2,000</div>
-          <div class="metric-note">台灣交易所</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">YTD 漲跌</div>
-          <div class="metric-val" style="color:var(--green)">+26.18%</div>
-          <div class="metric-note">強於大盤</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">1Y 漲跌</div>
-          <div class="metric-val" style="color:var(--green)">+131.21%</div>
-          <div class="metric-note">倍增</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">財報日期</div>
-          <div class="metric-val" style="color:var(--red)">Apr 16</div>
-          <div class="metric-note">⚡ 3 天後</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">分析師建議</div>
-          <div class="metric-val" style="color:var(--green)">買進</div>
-          <div class="metric-note">目標持續上修</div>
-        </div>
-      </div>
-      <div style="margin-top:12px; padding:10px; background:#0f172a; border-radius:6px; font-size:12px; color:var(--muted); line-height:1.7;">
-        <strong style="color:var(--text);">投資論點：</strong>全球最大晶圓代工廠，掌控 AI 晶片（NVIDIA H200/B200、Apple M4、AMD MI400）生命線。Arizona N2 廠預計 2026H1 量產，降低地緣政治風險。CoWoS 先進封裝需求爆炸，2026 產能已售罄。Trump 關稅 25% 短期衝擊成本，但長期供應無可替代，議價能力強。
-      </div>
-    </div>
-  </div>
-
-  <!-- VRT -->
-  <div class="stock-section">
-    <div class="stock-header">
-      <div>
-        <span class="ticker" style="font-size:20px;">VRT</span>
-        <span style="color:var(--muted); font-size:13px; margin-left:8px;">Vertiv Holdings</span>
-      </div>
-      <div style="margin-left:auto; display:flex; gap:8px; flex-wrap:wrap;">
-        <span class="badge badge-green">買進</span>
-        <span class="badge badge-purple">RS 90</span>
-        <span class="warning-flag">目標過時</span>
-      </div>
-    </div>
-    <div class="stock-body">
-      <div class="alert alert-warn" style="margin-bottom:12px;">
-        <span class="alert-icon">⚠️</span>
-        <div><strong>目標價過時警告：</strong>現價 $295.11 已超越分析師共識目標 $265.18（超漲 +11.3%）。市場定價領先，預計 Apr 22 財報後分析師將大幅上修目標至 $320–$360 區間。持有者無需恐慌性出清。</div>
-      </div>
-      <div class="metric-grid">
-        <div class="metric-box">
-          <div class="metric-label">現價</div>
-          <div class="metric-val" style="color:var(--green)">$295.11</div>
-          <div class="metric-note">Apr 10</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">共識目標</div>
-          <div class="metric-val" style="color:var(--red)">$265.18</div>
-          <div class="metric-note">⚠️ 低於現價</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">YTD</div>
-          <div class="metric-val" style="color:var(--green)">+68.05%</div>
-          <div class="metric-note">大幅跑贏大盤</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">1Y</div>
-          <div class="metric-val" style="color:var(--green)">+312.34%</div>
-          <div class="metric-note">近 4 倍</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">財報日</div>
-          <div class="metric-val" style="color:var(--yellow)">Apr 22</div>
-          <div class="metric-note">目標上修觸媒</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">RS 評分</div>
-          <div class="metric-val" style="color:var(--green)">90</div>
-          <div class="metric-note">超強動能</div>
-        </div>
-      </div>
-      <div style="margin-top:12px; padding:10px; background:#0f172a; border-radius:6px; font-size:12px; color:var(--muted); line-height:1.7;">
-        <strong style="color:var(--text);">投資論點：</strong>AI 資料中心電源管理核心供應商，提供液冷、UPS、PDU 等關鍵基礎設施。受益於全球 AI 算力爆炸式擴張，訂單能見度超過 18 個月。2026 超大型資料中心電力需求是 2023 的 5 倍，VRT 是不可或缺的受益者。
-      </div>
-    </div>
-  </div>
-
-  <!-- TSLA -->
-  <div class="stock-section">
-    <div class="stock-header">
-      <div>
-        <span class="ticker" style="font-size:20px;">TSLA</span>
-        <span style="color:var(--muted); font-size:13px; margin-left:8px;">Tesla Inc.</span>
-      </div>
-      <div style="margin-left:auto; display:flex; gap:8px; flex-wrap:wrap;">
-        <span class="badge badge-blue">持有</span>
-        <span class="badge badge-yellow">RS 50</span>
-      </div>
-    </div>
-    <div class="stock-body">
-      <div class="metric-grid">
-        <div class="metric-box">
-          <div class="metric-label">現價</div>
-          <div class="metric-val" style="color:var(--accent)">$348.95</div>
-          <div class="metric-note">Apr 10</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">分析師目標</div>
-          <div class="metric-val" style="color:var(--green)">$444.00</div>
-          <div class="metric-note">上漲空間 +27%</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">YTD</div>
-          <div class="metric-val" style="color:var(--red)">-20.34%</div>
-          <div class="metric-note">落後大盤</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">1Y</div>
-          <div class="metric-val" style="color:var(--green)">+38.28%</div>
-          <div class="metric-note">仍正報酬</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">財報日</div>
-          <div class="metric-val" style="color:var(--yellow)">Apr 22</div>
-          <div class="metric-note">關注 FSD 訂閱</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">RS 評分</div>
-          <div class="metric-val" style="color:var(--yellow)">50</div>
-          <div class="metric-note">中性整理</div>
-        </div>
-      </div>
-      <div style="margin-top:12px; padding:10px; background:#0f172a; border-radius:6px; font-size:12px; color:var(--muted); line-height:1.7;">
-        <strong style="color:var(--text);">投資論點：</strong>Cybercab Robotaxi 2026 Q3 量產計劃，FSD 訂閱收入轉化，Megapack 儲能訂單強勁。Musk 政治因素造成 YTD 承壓，但 Apr 22 財報若 Robotaxi 進度超預期，可能重新激活動能。
-      </div>
-    </div>
-  </div>
-
-  <!-- CRCL -->
-  <div class="stock-section">
-    <div class="stock-header">
-      <div>
-        <span class="ticker" style="font-size:20px;">CRCL</span>
-        <span style="color:var(--muted); font-size:13px; margin-left:8px;">Circle Internet Group</span>
-        <span class="tag-new" style="margin-left:8px;">新興</span>
-      </div>
-      <div style="margin-left:auto; display:flex; gap:8px; flex-wrap:wrap;">
-        <span class="badge badge-green">買進</span>
-        <span class="badge badge-blue">RS 82</span>
-      </div>
-    </div>
-    <div class="stock-body">
-      <div class="metric-grid">
-        <div class="metric-box">
-          <div class="metric-label">現價</div>
-          <div class="metric-val" style="color:var(--green)">$88.04</div>
-          <div class="metric-note">Apr 10</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">分析師目標</div>
-          <div class="metric-val" style="color:var(--green)">$115.11</div>
-          <div class="metric-note">上漲空間 +31%</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">YTD</div>
-          <div class="metric-val" style="color:var(--green)">+5.48%</div>
-          <div class="metric-note">小幅跑贏</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">1Y</div>
-          <div class="metric-val" style="color:var(--green)">+184.00%</div>
-          <div class="metric-note">近 3 倍</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">財報日</div>
-          <div class="metric-val" style="color:var(--accent)">May 13</div>
-          <div class="metric-note">USDC 業績</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">RS 評分</div>
-          <div class="metric-val" style="color:var(--accent)">82</div>
-          <div class="metric-note">強勢</div>
-        </div>
-      </div>
-      <div style="margin-top:12px; padding:10px; background:#0f172a; border-radius:6px; font-size:12px; color:var(--muted); line-height:1.7;">
-        <strong style="color:var(--text);">投資論點：</strong>USDC 穩定幣最大發行商，美國穩定幣監管法案（STABLE Act）通過後直接受益。Circle 是合規穩定幣生態最重要的基礎設施，跨境支付、DeFi 協議廣泛採用。
-      </div>
-    </div>
-  </div>
-
-  <!-- CRWD -->
-  <div class="stock-section">
-    <div class="stock-header">
-      <div>
-        <span class="ticker" style="font-size:20px;">CRWD</span>
-        <span style="color:var(--muted); font-size:13px; margin-left:8px;">CrowdStrike Holdings</span>
-      </div>
-      <div style="margin-left:auto; display:flex; gap:8px; flex-wrap:wrap;">
-        <span class="badge badge-green">買進</span>
-        <span class="badge badge-red">RS 25</span>
-      </div>
-    </div>
-    <div class="stock-body">
-      <div class="alert alert-info" style="margin-bottom:12px;">
-        <span class="alert-icon">💡</span>
-        <div><strong>逢低機會：</strong>CRWD 是網路安全龍頭，YTD -16.44% 主要受去年 7 月 IT 宕機事件後遺症拖累，基本面長期完好。目前相對大盤折價，可視為長線布局機會。</div>
-      </div>
-      <div class="metric-grid">
-        <div class="metric-box">
-          <div class="metric-label">現價</div>
-          <div class="metric-val" style="color:var(--accent)">$379.02</div>
-          <div class="metric-note">Apr 10</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">分析師目標</div>
-          <div class="metric-val" style="color:var(--green)">$535.65</div>
-          <div class="metric-note">上漲空間 +41%</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">YTD</div>
-          <div class="metric-val" style="color:var(--red)">-16.44%</div>
-          <div class="metric-note">弱勢</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">1Y</div>
-          <div class="metric-val" style="color:var(--yellow)">+0.10%</div>
-          <div class="metric-note">持平</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">財報日</div>
-          <div class="metric-val" style="color:var(--muted)">Jun 2</div>
-          <div class="metric-note">最遠期財報</div>
-        </div>
-        <div class="metric-box">
-          <div class="metric-label">RS 評分</div>
-          <div class="metric-val" style="color:var(--red)">25</div>
-          <div class="metric-note">弱，逢低布局</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ==================== TAB 5: 財報行事曆 ==================== -->
-<div id="tab-earnings" class="tab-panel">
-
-  <div class="alert alert-danger">
-    <span class="alert-icon">🚨</span>
-    <div><strong>緊急！TSM 台積電財報 4 月 16 日（週三）</strong> — 距今 3 天。CoWoS 2026 產能指引、AI 晶片需求展望、關稅衝擊評估，將是本週最重要催化劑。建議財報前審視倉位風險。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">📅 2026 Q1/Q2 財報時程</div>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-dot tl-urgent"></div>
-        <div class="tl-date">2026 年 4 月 16 日（週三）⚡ 緊急</div>
-        <div class="tl-company">TSM — 台積電 Q1 2026</div>
-        <div style="display:flex; gap:6px; margin:6px 0; flex-wrap:wrap;">
-          <span class="tl-tag tag-urgent">距今 3 天</span>
-          <span class="tl-tag" style="background:#1e3a5f; color:var(--accent);">ADR $370.60</span>
-          <span class="tl-tag" style="background:#064e3b; color:var(--green);">分析師：買進</span>
-        </div>
-        <div class="tl-detail">
-          🔍 重點關注：CoWoS 先進封裝產能利用率 & 2026 擴產計劃 | N2 量產良率指引 | Arizona Fab 進度 | Trump 25% 關稅衝擊評估 | 全年 EPS 指引上修空間
+    <!-- 主內容 -->
+    <div class="main-content">
+      <div class="report-hero fade-in">
+        <h1>🇺🇸 美股機構日報</h1>
+        <div class="accent-line"></div>
+        <div class="subtitle">
+          <span>📅 2026/04/14 週二</span>
+          <span>🤖 Claude AI × Bigdata.com</span>
+          <span>⏰ 每日 07:00 自動更新</span>
+          <span>📊 全自動零手動</span>
         </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="timeline-dot tl-soon"></div>
-        <div class="tl-date">2026 年 4 月 22 日（週二）</div>
-        <div class="tl-company">TSLA — 特斯拉 Q1 2026</div>
-        <div style="display:flex; gap:6px; margin:6px 0; flex-wrap:wrap;">
-          <span class="tl-tag tag-soon">9 天後</span>
-          <span class="tl-tag" style="background:#1e3a5f; color:var(--accent);">$348.95</span>
-          <span class="tl-tag" style="background:#1e3a5f; color:var(--accent);">持有</span>
-        </div>
-        <div class="tl-detail">
-          🔍 關注：Cybercab Robotaxi 時程 | FSD 訂閱滲透率 | 中國市場出貨量 | Megapack 儲能訂單 | Musk 政治風險
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot tl-soon"></div>
-        <div class="tl-date">2026 年 4 月 22 日（週二）</div>
-        <div class="tl-company">VRT — Vertiv Q1 2026</div>
-        <div style="display:flex; gap:6px; margin:6px 0; flex-wrap:wrap;">
-          <span class="tl-tag tag-soon">9 天後</span>
-          <span class="tl-tag" style="background:#1e3a5f; color:var(--accent);">$295.11</span>
-          <span class="tl-tag" style="background:#064e3b; color:var(--green);">買進</span>
-          <span class="warning-flag">⚠️ 目標上修觸媒</span>
-        </div>
-        <div class="tl-detail">
-          🔍 關注：訂單積壓量 & 2026 backlog | 液冷產能擴張 | 資料中心新合約 | 分析師目標上修（現目標 $265.18 已過時）
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot tl-normal"></div>
-        <div class="tl-date">2026 年 4 月 29 日（週二）</div>
-        <div class="tl-company">GOOGL — Alphabet Q1 2026</div>
-        <div style="display:flex; gap:6px; margin:6px 0; flex-wrap:wrap;">
-          <span class="tl-tag tag-normal">16 天後</span>
-          <span class="tl-tag" style="background:#1e3a5f; color:var(--accent);">$317.24</span>
-          <span class="tl-tag" style="background:#064e3b; color:var(--green);">買進</span>
-        </div>
-        <div class="tl-detail">
-          🔍 關注：廣告收入成長 | Gemini 2.0 商業化進度 | Google Cloud 市佔率 | YouTube Shorts 貨幣化 | AI Overview 廣告轉換率
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot tl-normal"></div>
-        <div class="tl-date">2026 年 5 月 7 日（週四）</div>
-        <div class="tl-company">VST — Vistra Energy Q1 2026</div>
-        <div style="display:flex; gap:6px; margin:6px 0; flex-wrap:wrap;">
-          <span class="tl-tag tag-normal">24 天後</span>
-          <span class="tl-tag" style="background:#1e3a5f; color:var(--accent);">$154.73</span>
-          <span class="tl-tag" style="background:#064e3b; color:var(--green);">買進</span>
-        </div>
-        <div class="tl-detail">
-          🔍 關注：核電廠 Comanche Peak 重啟時程 | 資料中心 PPA 合約 | 德州電力市場定價 | 2026 EBITDA 指引
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot tl-far"></div>
-        <div class="tl-date">2026 年 5 月 13 日（週三）</div>
-        <div class="tl-company">CRCL — Circle &amp; IREN — Iris Energy</div>
-        <div style="display:flex; gap:6px; margin:6px 0; flex-wrap:wrap;">
-          <span class="tl-tag" style="background:#1e293b; color:var(--muted);">30 天後</span>
-        </div>
-        <div class="tl-detail">
-          CRCL：USDC 流通量 & 利息收入 | IREN：AI 算力轉型進度 & BTC 挖礦成本
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot tl-far"></div>
-        <div class="tl-date">2026 年 6 月 2 日（週二）</div>
-        <div class="tl-company">CRWD — CrowdStrike Q1 FY2027</div>
-        <div style="display:flex; gap:6px; margin:6px 0; flex-wrap:wrap;">
-          <span class="tl-tag" style="background:#1e293b; color:var(--muted);">50 天後</span>
-        </div>
-        <div class="tl-detail">
-          關注：ARR 成長恢復、宕機事件客戶流失率、政府合約進度
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- ==================== TAB 6: 謠言破解 ==================== -->
-<div id="tab-rumor" class="tab-panel">
-
-  <div class="card">
-    <div class="card-title">🔎 謠言與新聞查核 — 2026-04-13</div>
-
-    <div class="rumor-card rumor-true">
-      <div class="rumor-header">
-        <span class="rumor-icon">✅</span>
-        <span class="rumor-claim">「CoreWeave 與 Anthropic 簽署多年 AI 雲端算力大單」</span>
-        <span class="verdict verdict-true">確認屬實</span>
-      </div>
-      <div class="rumor-body">
-        <strong>查核結果：</strong>確認。CoreWeave 和 Anthropic 已簽署多年期雲端算力合作協議，CoreWeave 提供大規模 GPU 算力支持 Anthropic Claude 模型訓練與推論。這是 AI 資本支出週期持續的強力佐證，對 VRT（電源管理）、IREN（算力供應）等供應鏈具正面催化效應。
-        <br><br><strong>投資含義：</strong>AI 算力需求未見頂，繼續支撐半導體（TSM、SMH）和 AI 基礎建設（VRT、IREN）板塊。
+      <div class="report-body fade-in" id="reportContent">
+        <h1>美股市場分析日報 - 2026年4月14日</h1>
+<br>
+<p><strong>免責聲明：本分析基於訓練數據，非即時市場資訊，僅供參考，不構成投資建議</strong></p>
+<br>
+<h2>一、宏觀經濟環境分析</h2>
+<br>
+<h3>聯準會政策展望</h3>
+<p>根據訓練數據分析，2026年4月美國經濟預期處於溫和復甦階段。聯準會政策立場可能維持相對中性，關注通脹數據與就業市場平衡。投資者應密切關注本週可能發布的CPI數據及聯準會官員講話。</p>
+<br>
+<h3>地緣政治因素</h3>
+<p>全球供應鏈持續調整，美中科技競爭態勢影響半導體及科技股表現。歐洲經濟復甦進程及能源政策變化值得關注。</p>
+<br>
+<h3>市場情緒指標</h3>
+<li>VIX指數：預期維持中等波動區間</li>
+<li>美元指數：可能受到國際資金流動影響</li>
+<li>十年期美債殖利率：關注通脹預期變化</li>
+<br>
+<h2>二、主要板塊分析</h2>
+<br>
+<h3>科技股（NASDAQ）</h3>
+<p>人工智慧與雲端運算持續成為投資熱點，但估值面臨調整壓力。關注財報季表現及未來展望。</p>
+<br>
+<h3>半導體板塊</h3>
+<p>全球晶片需求復甦，但地緣政治風險仍存。台積電等代工廠商受惠於AI晶片需求成長。</p>
+<br>
+<h3>新能源板塊</h3>
+<p>電動車市場競爭加劇，關注充電基礎設施建設進展及政策支持力度。</p>
+<br>
+<h3>網路安全板塊</h3>
+<p>企業數位轉型帶動安全需求，雲端安全解決方案成長動能強勁。</p>
+<br>
+<h2>三、重點個股分析</h2>
+<br>
+<h3>TSLA (Tesla Inc.)</h3>
+<p><strong>技術面</strong>：關注重要支撐位表現</p>
+<p><strong>基本面</strong>：電動車交付量與新產品發布進度</p>
+<p><strong>風險因素</strong>：競爭加劇、監管變化</p>
+<p><strong>評等</strong>：中性，建議觀望</p>
+<br>
+<h3>TSM (台積電ADR)</h3>
+<p><strong>技術面</strong>：受惠AI晶片需求</p>
+<p><strong>基本面</strong>：先進製程技術領先優勢</p>
+<p><strong>風險因素</strong>：地緣政治、客戶集中度</p>
+<p><strong>評等</strong>：相對看好，逢低布局</p>
+<br>
+<h3>VRT (Vertiv Holdings)</h3>
+<p><strong>技術面</strong>：數據中心基礎設施需求成長</p>
+<p><strong>基本面</strong>：AI發展帶動散熱解決方案需求</p>
+<p><strong>風險因素</strong>：供應鏈成本壓力</p>
+<p><strong>評等</strong>：中性偏多</p>
+<br>
+<h3>CRWD (CrowdStrike)</h3>
+<p><strong>技術面</strong>：網路安全龍頭地位穩固</p>
+<p><strong>基本面</strong>：訂閱制收入模式穩定</p>
+<p><strong>風險因素</strong>：估值偏高、競爭加劇</p>
+<p><strong>評等</strong>：長期看好，短期觀望</p>
+<br>
+<h3>CRCL (ChargePoint Holdings)</h3>
+<p><strong>技術面</strong>：充電樁基礎建設受惠股</p>
+<p><strong>基本面</strong>：電動車普及率提升帶動需求</p>
+<p><strong>風險因素</strong>：獲利能力、競爭壓力</p>
+<p><strong>評等</strong>：高風險高報酬，適合風險偏好者</p>
+<br>
+<h3>GOOGL (Alphabet Inc.)</h3>
+<p><strong>技術面</strong>：AI技術整合進展</p>
+<p><strong>基本面</strong>：廣告收入復甦、雲端業務成長</p>
+<p><strong>風險因素</strong>：監管壓力、競爭加劇</p>
+<p><strong>評等</strong>：相對穩健，長期持有</p>
+<br>
+<h3>SMH (半導體ETF)</h3>
+<p><strong>技術面</strong>：反映整體半導體板塊表現</p>
+<p><strong>基本面</strong>：AI晶片需求支撐</p>
+<p><strong>風險因素</strong>：週期性波動、地緣政治</p>
+<p><strong>評等</strong>：適合波段操作</p>
+<br>
+<h3>VST (Vistra Corp.)</h3>
+<p><strong>技術面</strong>：能源轉型受惠股</p>
+<p><strong>基本面</strong>：電力需求成長、綠能政策支持</p>
+<p><strong>風險因素</strong>：能源政策變化、成本波動</p>
+<p><strong>評等</strong>：中性</p>
+<br>
+<h3>IREN (Iris Energy)</h3>
+<p><strong>技術面</strong>：數位資產相關標的</p>
+<p><strong>基本面</strong>：加密貨幣挖礦營運</p>
+<p><strong>風險因素</strong>：高度波動、監管不確定性</p>
+<p><strong>評等</strong>：高風險投機標的</p>
+<br>
+<h2>四、操盤建議</h2>
+<br>
+<h3>短線策略（1-2週）</h3>
+<li class="num">關注財報季個股表現，重點觀察科技股財報</li>
+<li class="num">注意宏觀數據公布對市場情緒影響</li>
+<li class="num">控制單一持股比重，分散風險</li>
+<br>
+<h3>中線策略（1-3個月）</h3>
+<li class="num">AI相關產業鏈維持關注，但注意估值風險</li>
+<li class="num">半導體板塊可逢低分批布局</li>
+<li class="num">新能源板塊選擇基本面穩健標的</li>
+<br>
+<h3>風險控制</h3>
+<li class="num">設定停損點，嚴格執行</li>
+<li class="num">避免過度集中單一板塊</li>
+<li class="num">保持適當現金部位應對波動</li>
+<br>
+<h3>資金配置建議</h3>
+<li>科技成長股：30-40%</li>
+<li>價值型股票：20-30%</li>
+<li>防禦型資產：20-25%</li>
+<li>現金部位：10-20%</li>
+<br>
+<h2>五、本週關注重點</h2>
+<br>
+<h3>重要數據發布</h3>
+<li>CPI通脹數據</li>
+<li>零售銷售數據</li>
+<li>工業生產指數</li>
+<br>
+<h3>企業動態</h3>
+<li>科技巨頭財報發布</li>
+<li>半導體公司展望更新</li>
+<li>新能源政策相關公告</li>
+<br>
+<h3>技術面關鍵點位</h3>
+<li>NASDAQ 15,000點支撐</li>
+<li>S&P 500重要均線位置</li>
+<li>個股技術指標背離現象</li>
+<br>
+<hr>
+<br>
+<p><strong>風險提醒：本報告基於歷史訓練資料分析，無法反映即時市場狀況。投資有風險，請謹慎評估自身風險承受能力，必要時諮詢專業投資顧問。</strong></p>
+<br>
+<p><em>報告生成時間：基於訓練數據模擬分析</em></p>
       </div>
     </div>
 
-    <div class="rumor-card rumor-true">
-      <div class="rumor-header">
-        <span class="rumor-icon">✅</span>
-        <span class="rumor-claim">「Trump 宣布對 AI 晶片進口課徵 25% 關稅」</span>
-        <span class="verdict verdict-true">確認屬實</span>
+    <!-- 側邊欄 -->
+    <div class="sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-title">歷史日報</div>
+        <div id="historyList"></div>
       </div>
-      <div class="rumor-body">
-        <strong>查核結果：</strong>確認。2026 年 4 月初，Trump 政府針對進口 AI 晶片宣布 25% 附加關稅，主要衝擊台積電（TSM）製造的 NVIDIA GPU 及 Apple 晶片。短期對半導體股造成情緒壓力，但市場在 Apr 6–10 週已消化並大幅反彈（Nasdaq 週漲 +4.02%）。
-        <br><br><strong>投資含義：</strong>短期成本壓力，但台積電不可替代性強，預計漲價轉嫁。長期推動在美建廠加速，Arizona Fab 具戰略優勢。TSM 仍維持買進評級。
-      </div>
-    </div>
-
-    <div class="rumor-card rumor-partial">
-      <div class="rumor-header">
-        <span class="rumor-icon">⚠️</span>
-        <span class="rumor-claim">「AI 關稅將導致 NVIDIA GPU 停止出貨台灣」</span>
-        <span class="verdict verdict-partial">部分誤解</span>
-      </div>
-      <div class="rumor-body">
-        <strong>查核結果：</strong>誤解。關稅針對的是「進口美國的 AI 晶片」而非出口。台積電仍可正常製造並出口 NVIDIA GPU，主要影響是美國買家的進口成本提升。美國科技公司將承擔更高採購成本，或轉嫁給終端客戶。台積電本身的製造訂單不受直接影響。
-        <br><br><strong>投資含義：</strong>不影響 TSM 接單量，但美國雲端業者（AWS/Azure/GCP）資本支出可能小幅縮減——目前尚無此跡象。
-      </div>
-    </div>
-
-    <div class="rumor-card rumor-partial">
-      <div class="rumor-header">
-        <span class="rumor-icon">⚠️</span>
-        <span class="rumor-claim">「Elon Musk 將出售 TSLA 持股以支持 DOGE」</span>
-        <span class="verdict verdict-partial">未獲證實</span>
-      </div>
-      <div class="rumor-body">
-        <strong>查核結果：</strong>未獲官方確認，屬市場傳言。Musk 的政治活動（DOGE 政府效率部）確實對 TSLA 品牌形象造成壓力，部分消費者抵制特斯拉，導致 YTD -20.34%。但未有可靠消息指出 Musk 計劃大規模減持。
-        <br><br><strong>投資含義：</strong>繼續觀望，Apr 22 財報後看 Robotaxi 進度是否重啟買盤。維持持有評級。
-      </div>
-    </div>
-
-    <div class="rumor-card rumor-true">
-      <div class="rumor-header">
-        <span class="rumor-icon">✅</span>
-        <span class="rumor-claim">「Broadcom +5%、Micron +7%，帶動 SMH 週漲超 5%」</span>
-        <span class="verdict verdict-true">確認屬實</span>
-      </div>
-      <div class="rumor-body">
-        <strong>查核結果：</strong>確認。Apr 6–10 週，Broadcom (AVGO) 和 Micron (MU) 分別大漲 +5% 和 +7%，帶動 SMH 半導體 ETF 週漲超過 5%，成為當週市場反彈的領頭羊。背後驅動力是 AI HBM 記憶體需求確認及 Broadcom AI ASIC 訂單超預期。
-        <br><br><strong>投資含義：</strong>半導體板塊動能強勁，SMH 繼續是 AI 主題最佳代理標的。
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ==================== TAB 7: 交易指令 ==================== -->
-<div id="tab-orders" class="tab-panel">
-
-  <div class="alert alert-info">
-    <span class="alert-icon">⚠️</span>
-    <div><strong>免責聲明：</strong>以下交易指令僅為研究參考，基於技術分析和基本面評估。所有價格以 2026-04-10 收盤為基準。請根據個人風險承受能力自行判斷，本報告不構成投資建議。</div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">📋 交易指令表 — 2026-04-13 週開盤參考</div>
-
-    <!-- TSM -->
-    <div class="trade-card">
-      <div class="trade-header">
-        <span class="ticker" style="font-size:18px;">TSM</span>
-        <span style="color:var(--muted); font-size:12px;">台積電 ADR</span>
-        <span class="trade-action action-buy">⚡ 財報前減風險</span>
-        <span style="font-size:12px; color:var(--red); margin-left:auto;">注意財報 Apr 16！</span>
-      </div>
-      <div class="trade-prices">
-        <div class="price-box">
-          <div class="price-label">進場區間</div>
-          <div class="price-val price-entry">$355–$370</div>
-        </div>
-        <div class="price-box">
-          <div class="price-label">目標價 (6M)</div>
-          <div class="price-val price-target">$420+</div>
-        </div>
-        <div class="price-box">
-          <div class="price-label">停損點</div>
-          <div class="price-val price-stop">$340</div>
-        </div>
-      </div>
-      <div style="margin-top:8px; font-size:12px; color:var(--muted);">建議：財報前若已持有，可部分獲利了結或買保護性 Put；財報後若指引超預期，積極加倉至 $420 目標。</div>
-    </div>
-
-    <!-- VRT -->
-    <div class="trade-card">
-      <div class="trade-header">
-        <span class="ticker" style="font-size:18px;">VRT</span>
-        <span style="color:var(--muted); font-size:12px;">Vertiv</span>
-        <span class="trade-action action-buy">持有 等財報上修</span>
-        <span class="warning-flag" style="margin-left:auto;">目標過時 $265.18</span>
-      </div>
-      <div class="trade-prices">
-        <div class="price-box">
-          <div class="price-label">現價 / 進場</div>
-          <div class="price-val price-entry">$295 / $270–$285</div>
-        </div>
-        <div class="price-box">
-          <div class="price-label">財報後目標</div>
-          <div class="price-val price-target">$320–$360</div>
-        </div>
-        <div class="price-box">
-          <div class="price-label">停損點</div>
-          <div class="price-val price-stop">$260</div>
-        </div>
-      </div>
-      <div style="margin-top:8px; font-size:12px; color:var(--muted);">持有至 Apr 22 財報；目標在財報後分析師上修至 $330+。如有獲利壓力可部分減倉，但核心倉位持有。新資金等財報後回落 $270–285 再加倉。</div>
-    </div>
-
-    <!-- IREN -->
-    <div class="trade-card">
-      <div class="trade-header">
-        <span class="ticker" style="font-size:18px;">IREN</span>
-        <span style="color:var(--muted); font-size:12px;">Iris Energy — RS #1</span>
-        <span class="trade-action action-buy">積極買進</span>
-      </div>
-      <div class="trade-prices">
-        <div class="price-box">
-          <div class="price-label">進場區間</div>
-          <div class="price-val price-entry">$36–$40</div>
-        </div>
-        <div class="price-box">
-          <div class="price-label">目標價</div>
-          <div class="price-val price-target">$55–$75</div>
-        </div>
-        <div class="price-box">
-          <div class="price-label">停損點</div>
-          <div class="price-val price-stop">$31</div>
-        </div>
-      </div>
-      <div style="margin-top:8px; font-size:12px; color:var(--muted);">RS #1 動能最強。AI 算力轉型主題，分析師目標 $75.50，現價 $39.32 仍有 +92% 上漲空間。風險：BTC 價格波動、算力市場競爭。</div>
-    </div>
-
-    <!-- GOOGL -->
-    <div class="trade-card">
-      <div class="trade-header">
-        <span class="ticker" style="font-size:18px;">GOOGL</span>
-        <span style="color:var(--muted); font-size:12px;">Alphabet</span>
-        <span class="trade-action action-buy">買進 等財報</span>
-      </div>
-      <div class="trade-prices">
-        <div class="price-box">
-          <div class="price-label">進場區間</div>
-          <div class="price-val price-entry">$300–$320</div>
-        </div>
-        <div class="price-box">
-          <div class="price-label">目標價</div>
-          <div class="price-val price-target">$375–$400</div>
-        </div>
-        <div class="price-box">
-          <div class="price-label">停損點</div>
-          <div class="price-val price-stop">$285</div>
-        </div>
-      </div>
-      <div style="margin-top:8px; font-size:12px; color:var(--muted);">YTD 持平低估，Gemini AI 商業化落地，廣告市場反彈。Apr 29 財報前分批建倉，目標 +18–26%。</div>
-    </div>
-
-    <!-- CRWD -->
-    <div class="trade-card">
-      <div class="trade-header">
-        <span class="ticker" style="font-size:18px;">CRWD</span>
-        <span style="color:var(--muted); font-size:12px;">CrowdStrike</span>
-        <span class="trade-action action-watch">逢低布局</span>
-      </div>
-      <div class="trade-prices">
-        <div class="price-box">
-          <div class="price-label">進場區間</div>
-          <div class="price-val price-entry">$360–$385</div>
-        </div>
-        <div class="price-box">
-          <div class="price-label">目標價 (1Y)</div>
-          <div class="price-val price-target">$500–$535</div>
-        </div>
-        <div class="price-box">
-          <div class="price-label">停損點</div>
-          <div class="price-val price-stop">$340</div>
-        </div>
-      </div>
-      <div style="margin-top:8px; font-size:12px; color:var(--muted);">RS 最弱（25），但基本面完好，分析師目標 $535.65 vs 現價 $379。網路安全長期成長確定，等 Jun 2 財報前逢低建倉。</div>
-    </div>
-
-    <!-- CRCL -->
-    <div class="trade-card">
-      <div class="trade-header">
-        <span class="ticker" style="font-size:18px;">CRCL</span>
-        <span style="color:var(--muted); font-size:12px;">Circle Internet</span>
-        <span class="trade-action action-buy">買進</span>
-      </div>
-      <div class="trade-prices">
-        <div class="price-box">
-          <div class="price-label">進場區間</div>
-          <div class="price-val price-entry">$82–$90</div>
-        </div>
-        <div class="price-box">
-          <div class="price-label">目標價</div>
-          <div class="price-val price-target">$115</div>
-        </div>
-        <div class="price-box">
-          <div class="price-label">停損點</div>
-          <div class="price-val price-stop">$72</div>
-        </div>
-      </div>
-      <div style="margin-top:8px; font-size:12px; color:var(--muted);">穩定幣監管法案利多，USDC 成長強勁，目標 $115.11（+31%）。May 13 財報催化。</div>
-    </div>
-
-    <!-- VST -->
-    <div class="trade-card">
-      <div class="trade-header">
-        <span class="ticker" style="font-size:18px;">VST</span>
-        <span style="color:var(--muted); font-size:12px;">Vistra Energy</span>
-        <span class="trade-action action-buy">買進 整理後</span>
-      </div>
-      <div class="trade-prices">
-        <div class="price-box">
-          <div class="price-label">進場區間</div>
-          <div class="price-val price-entry">$148–$160</div>
-        </div>
-        <div class="price-box">
-          <div class="price-label">目標價</div>
-          <div class="price-val price-target">$230</div>
-        </div>
-        <div class="price-box">
-          <div class="price-label">停損點</div>
-          <div class="price-val price-stop">$135</div>
-        </div>
-      </div>
-      <div style="margin-top:8px; font-size:12px; color:var(--muted);">核電 + AI 電力需求受益股，目標 $230.56（+49%）。YTD -6.35% 整理充分，May 7 財報前逢低加倉。</div>
-    </div>
-
-    <!-- TSLA -->
-    <div class="trade-card">
-      <div class="trade-header">
-        <span class="ticker" style="font-size:18px;">TSLA</span>
-        <span style="color:var(--muted); font-size:12px;">Tesla</span>
-        <span class="trade-action action-hold">持有 觀察財報</span>
-      </div>
-      <div class="trade-prices">
-        <div class="price-box">
-          <div class="price-label">現價 / 加碼</div>
-          <div class="price-val price-entry">$349 / $320–$340</div>
-        </div>
-        <div class="price-box">
-          <div class="price-label">目標價</div>
-          <div class="price-val price-target">$444</div>
-        </div>
-        <div class="price-box">
-          <div class="price-label">停損點</div>
-          <div class="price-val price-stop">$300</div>
-        </div>
-      </div>
-      <div style="margin-top:8px; font-size:12px; color:var(--muted);">維持持有，等 Apr 22 財報確認 Robotaxi 時程。若 Cybercab 量產進度超預期，有望突破 $400 重回上升趨勢。</div>
     </div>
 
   </div>
 </div>
 
-<!-- ==================== TAB 8: 週報摘要 ==================== -->
-<div id="tab-weekly" class="tab-panel">
-
-  <div class="card">
-    <div class="card-title">📊 本週績效回顧（Apr 6–10, 2026）</div>
-    <div class="grid-4">
-      <div class="week-stat">
-        <div class="week-stat-val" style="color:var(--green)">+4.02%</div>
-        <div class="week-stat-label">Nasdaq 週漲幅</div>
-      </div>
-      <div class="week-stat">
-        <div class="week-stat-val" style="color:var(--green)">+3.02%</div>
-        <div class="week-stat-label">S&amp;P 500 週漲幅</div>
-      </div>
-      <div class="week-stat">
-        <div class="week-stat-val" style="color:var(--green)">+5%+</div>
-        <div class="week-stat-label">SMH 半導體週漲</div>
-      </div>
-      <div class="week-stat">
-        <div class="week-stat-val" style="color:var(--yellow)">19.23</div>
-        <div class="week-stat-label">VIX 收盤（低恐慌）</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">🎯 本週主題：「AI 韌性反彈 vs 關稅陰霾」</div>
-    <div style="color:var(--muted); line-height:1.9; font-size:13px;">
-      <p style="margin-bottom:12px;">
-        本週市場展現強勁韌性。儘管 Trump AI 晶片 25% 關稅在週初引發情緒衝擊，但市場在消化政策後迅速反彈，Nasdaq 週漲 +4.02%，半導體板塊（SMH +5%+）領跑全場。
-      </p>
-      <p style="margin-bottom:12px;">
-        <strong style="color:var(--text);">核心驅動力：</strong>CoreWeave-Anthropic 大型算力合約確認 AI 資本支出週期仍在加速。Broadcom（AVGO）+5% 和 Micron（MU）+7% 反映 AI ASIC 和 HBM 記憶體需求超預期，直接帶動 SMH ETF。
-      </p>
-      <p style="margin-bottom:12px;">
-        <strong style="color:var(--text);">宏觀隱憂：</strong>WTI 原油 $96.57（YTD +67.45%）是本報告最大隱患——如油價突破 $100，通膨預期將重燃，Fed 降息展望惡化，高估值成長股面臨估值重估壓力。黃金 $4,787 避險買盤同步上升，顯示機構投資人存在防禦需求。
-      </p>
-    </div>
-  </div>
-
-  <div class="grid-2">
-    <div class="card">
-      <div class="card-title">✅ 本週亮點</div>
-      <div style="color:var(--muted); font-size:13px; line-height:1.9;">
-        <div>🟢 SMH 半導體 ETF 週漲 5%+，AI 動能確認</div>
-        <div>🟢 VRT YTD +68%，持續創歷史新高</div>
-        <div>🟢 CoreWeave-Anthropic 大單確認算力需求</div>
-        <div>🟢 Nasdaq 單週反彈 4%，技術面好轉</div>
-        <div>🟢 VIX 回落至 19.23，恐慌情緒消退</div>
-        <div>🟢 IREN 1Y +584%，算力轉型邏輯持續兌現</div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-title">⚠️ 本週風險</div>
-      <div style="color:var(--muted); font-size:13px; line-height:1.9;">
-        <div>🔴 WTI 油價 $96.57，通膨風險高</div>
-        <div>🔴 AI 晶片 25% 關稅，半導體成本壓力</div>
-        <div>🟡 TSLA YTD -20%，Musk 政治風險未退</div>
-        <div>🟡 CRWD 持續弱勢，RS 僅 25</div>
-        <div>🟡 BTC YTD -20%，加密市場動能不足</div>
-        <div>🟡 TSM 財報前不確定性（3 天後！）</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">🔮 下週展望（Apr 14–18, 2026）</div>
-    <div style="color:var(--muted); font-size:13px; line-height:1.9;">
-      <div class="grid-2">
-        <div>
-          <div style="font-weight:600; color:var(--accent); margin-bottom:8px;">📅 重要催化劑</div>
-          <div>⚡ <strong style="color:var(--red);">Apr 16：TSM Q1 財報</strong>（本週最重要事件）</div>
-          <div>📊 Apr 15：美國 CPI 通膨數據</div>
-          <div>🏦 Apr 16：Fed 官員講話（Waller）</div>
-          <div>💰 Apr 17：美國零售銷售數據</div>
-          <div>📈 Apr 18：全球 PMI 初值</div>
-        </div>
-        <div>
-          <div style="font-weight:600; color:var(--green); margin-bottom:8px;">📈 多頭情境（60% 機率）</div>
-          <div>• TSM 財報超預期 → SMH 突破 $450</div>
-          <div>• CPI 溫和 → Fed 鴿派 → Nasdaq 續漲</div>
-          <div>• VRT/GOOGL 財報前預期升溫</div>
-          <div style="margin-top:8px; font-weight:600; color:var(--red);">📉 空頭情境（40% 機率）</div>
-          <div>• TSM 指引不佳 → SMH 急跌 5–8%</div>
-          <div>• CPI 超預期 → 10Y 突破 4.5%</div>
-          <div>• 油價突破 $100 → 市場恐慌</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title">💎 策略總結</div>
-    <div style="font-size:13px; line-height:1.9; color:var(--muted);">
-      本週核心策略：<strong style="color:var(--text);">持有 AI 基礎建設核心倉位（VRT、IREN、CRCL），等待 TSM 財報後決策點</strong>。TSM Apr 16 財報是本週乃至本季最重要的市場事件——其對 AI 算力需求的指引將決定整個半導體族群的短期方向。如財報超預期，積極加碼 TSM 和 SMH；如指引保守，可部分獲利了結等待更好進場點。
-      <br><br>
-      長期邏輯不變：<strong style="color:var(--green);">AI 基礎建設超級週期（VRT、IREN）→ 算力供應（TSM）→ AI 應用（GOOGL、CRWD）</strong>。CRWD 短期弱勢是逢低布局機會，網路安全長期需求不可動搖。
-    </div>
-  </div>
-
+<!-- Footer -->
+<div class="footer">
+  <p>🇺🇸 美股機構日報 ｜ 自動生成於 2026/04/14</p>
+  <p style="margin-top:6px">⚠️ 本報告為 AI 自動生成之資訊整理，不構成任何投資建議。投資涉及風險，請自行評估。</p>
+  <p style="margin-top:6px; color:#334155">Powered by Claude AI × Bigdata.com × GitHub Actions</p>
 </div>
-
-</div><!-- end .content -->
-
-<footer>
-  <div>🏦 美股機構日報 — AI 生成研究報告 | 資料來源：Bigdata.com、Web Search</div>
-  <div style="margin-top:4px;">本報告不構成投資建議，僅供研究參考。投資有風險，請自行評估。</div>
-  <div style="margin-top:4px;"><a href="https://poiuy526-eng.github.io/Stock-dashboard/" target="_blank">🔗 https://poiuy526-eng.github.io/Stock-dashboard/</a> | 更新：2026-04-13</div>
-</footer>
 
 <script>
-function switchTab(name, btn) {
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + name).classList.add('active');
-  btn.classList.add('active');
-  // Trigger RS bars animation when RS tab is shown
-  if (name === 'rs') {
-    setTimeout(animateRSBars, 100);
+// ── 歷史日報數據 ──────────────────────────────────────────────
+const HISTORY = [{"date": "2026/04/14", "date_file": "2026-04-14", "weekday": "週二", "content": "# 美股市場分析日報 - 2026年4月14日\n\n**免責聲明：本分析基於訓練數據，非即時市場資訊，僅供參考，不構成投資建議**\n\n## 一、宏觀經濟環境分析\n\n### 聯準會政策展望\n根據訓練數據分析，2026年4月美國經濟預期處於溫和復甦階段。聯準會政策立場可能維持相對中性，關注通脹數據與就業市場平衡。投資者應密切關注本週可能發布的CPI數據及聯準會官員講話。\n\n### 地緣政治因素\n全球供應鏈持續調整，美中科技競爭態勢影響半導體及科技股表現。歐洲經濟復甦進程及能源政策變化值得關注。\n\n### 市場情緒指標\n- VIX指數：預期維持中等波動區間\n- 美元指數：可能受到國際資金流動影響\n- 十年期美債殖利率：關注通脹預期變化\n\n## 二、主要板塊分析\n\n### 科技股（NASDAQ）\n人工智慧與雲端運算持續成為投資熱點，但估值面臨調整壓力。關注財報季表現及未來展望。\n\n### 半導體板塊\n全球晶片需求復甦，但地緣政治風險仍存。台積電等代工廠商受惠於AI晶片需求成長。\n\n### 新能源板塊\n電動車市場競爭加劇，關注充電基礎設施建設進展及政策支持力度。\n\n### 網路安全板塊\n企業數位轉型帶動安全需求，雲端安全解決方案成長動能強勁。\n\n## 三、重點個股分析\n\n### TSLA (Tesla Inc.)\n**技術面**：關注重要支撐位表現\n**基本面**：電動車交付量與新產品發布進度\n**風險因素**：競爭加劇、監管變化\n**評等**：中性，建議觀望\n\n### TSM (台積電ADR)\n**技術面**：受惠AI晶片需求\n**基本面**：先進製程技術領先優勢\n**風險因素**：地緣政治、客戶集中度\n**評等**：相對看好，逢低布局\n\n### VRT (Vertiv Holdings)\n**技術面**：數據中心基礎設施需求成長\n**基本面**：AI發展帶動散熱解決方案需求\n**風險因素**：供應鏈成本壓力\n**評等**：中性偏多\n\n### CRWD (CrowdStrike)\n**技術面**：網路安全龍頭地位穩固\n**基本面**：訂閱制收入模式穩定\n**風險因素**：估值偏高、競爭加劇\n**評等**：長期看好，短期觀望\n\n### CRCL (ChargePoint Holdings)\n**技術面**：充電樁基礎建設受惠股\n**基本面**：電動車普及率提升帶動需求\n**風險因素**：獲利能力、競爭壓力\n**評等**：高風險高報酬，適合風險偏好者\n\n### GOOGL (Alphabet Inc.)\n**技術面**：AI技術整合進展\n**基本面**：廣告收入復甦、雲端業務成長\n**風險因素**：監管壓力、競爭加劇\n**評等**：相對穩健，長期持有\n\n### SMH (半導體ETF)\n**技術面**：反映整體半導體板塊表現\n**基本面**：AI晶片需求支撐\n**風險因素**：週期性波動、地緣政治\n**評等**：適合波段操作\n\n### VST (Vistra Corp.)\n**技術面**：能源轉型受惠股\n**基本面**：電力需求成長、綠能政策支持\n**風險因素**：能源政策變化、成本波動\n**評等**：中性\n\n### IREN (Iris Energy)\n**技術面**：數位資產相關標的\n**基本面**：加密貨幣挖礦營運\n**風險因素**：高度波動、監管不確定性\n**評等**：高風險投機標的\n\n## 四、操盤建議\n\n### 短線策略（1-2週）\n1. 關注財報季個股表現，重點觀察科技股財報\n2. 注意宏觀數據公布對市場情緒影響\n3. 控制單一持股比重，分散風險\n\n### 中線策略（1-3個月）\n1. AI相關產業鏈維持關注，但注意估值風險\n2. 半導體板塊可逢低分批布局\n3. 新能源板塊選擇基本面穩健標的\n\n### 風險控制\n1. 設定停損點，嚴格執行\n2. 避免過度集中單一板塊\n3. 保持適當現金部位應對波動\n\n### 資金配置建議\n- 科技成長股：30-40%\n- 價值型股票：20-30%\n- 防禦型資產：20-25%\n- 現金部位：10-20%\n\n## 五、本週關注重點\n\n### 重要數據發布\n- CPI通脹數據\n- 零售銷售數據\n- 工業生產指數\n\n### 企業動態\n- 科技巨頭財報發布\n- 半導體公司展望更新\n- 新能源政策相關公告\n\n### 技術面關鍵點位\n- NASDAQ 15,000點支撐\n- S&P 500重要均線位置\n- 個股技術指標背離現象\n\n---\n\n**風險提醒：本報告基於歷史訓練資料分析，無法反映即時市場狀況。投資有風險，請謹慎評估自身風險承受能力，必要時諮詢專業投資顧問。**\n\n*報告生成時間：基於訓練數據模擬分析*"}, {"date": "2026/04/11", "date_file": "2026-04-11", "weekday": "週六", "content": "# 2026年4月11日美股市場分析日報\n\n**免責聲明：本分析基於AI訓練數據進行模擬分析，非即時市場數據，僅供參考，不構成投資建議。**\n\n---\n\n## 📊 宏觀經濟環境分析\n\n### 市場概況\n- **聯準會政策展望**：預期維持謹慎立場，通膨數據仍為關注焦點\n- **經濟數據預期**：製造業PMI可能持續復甦，就業市場保持韌性\n- **地緣政治**：中美科技競爭持續，但貿易關係相對穩定\n- **美元走勢**：預期維持區間震盪，對科技股影響中性\n\n### 技術面總覽\n- **標普500指數**：技術面呈現整理格局，等待突破方向\n- **那斯達克**：科技股仍為市場主要驅動力\n- **波動率指數(VIX)**：維持低檔，市場情緒相對穩定\n\n---\n\n## 🏭 重點板塊分析\n\n### 🔌 電動車與新能源板塊\n**評級：中性偏多**\n- 全球電動車滲透率持續提升\n- 充電基礎設施建設加速\n- 電池技術突破帶來成本優勢\n\n### 💻 半導體板塊  \n**評級：審慎樂觀**\n- AI晶片需求持續強勁\n- 記憶體價格築底回升\n- 地緣政治風險需持續關注\n\n### 🔒 網路安全板塊\n**評級：長期看好**\n- 企業數位轉型帶動需求\n- 雲端安全成長動能強勁\n- 法規要求推動市場擴張\n\n### ☁️ 雲端運算板塊\n**評級：持續看好**\n- 生成式AI應用蓬勃發展\n- 企業上雲趨勢不變\n- 毛利率改善空間大\n\n---\n\n## 📈 個股深度分析\n\n### 🚗 TESLA (TSLA) - 目標價：$280\n**當前評級：買入**\n- **基本面**：Q1交付量超預期，新車型量產進度順利\n- **技術面**：突破關鍵阻力位，量能配合良好\n- **催化因素**：FSD技術進展、儲能業務擴張\n- **風險**：競爭加劇、原物料成本波動\n\n### 🔬 台積電 (TSM) - 目標價：$145\n**當前評級：強力買入**\n- **基本面**：先進製程訂單飽滿，3nm良率持續改善\n- **技術面**：長期上升趨勢完整，回檔為買點\n- **催化因素**：AI晶片需求、汽車晶片復甦\n- **風險**：地緣政治、客戶集中度高\n\n### 🏥 Vertiv (VRT) - 目標價：$95\n**當前評級：買入**\n- **基本面**：數據中心基建需求爆發性成長\n- **技術面**：多頭格局明確，突破整理平台\n- **催化因素**：AI運算推動散熱需求、5G建設\n- **風險**：供應鏈壓力、競爭加劇\n\n### 🛡️ CrowdStrike (CRWD) - 目標價：$320\n**當前評級：買入**\n- **基本面**：ARR持續高成長，客戶留存率優異\n- **技術面**：整理後重新向上，動能轉強\n- **催化因素**：Zero Trust架構普及、AI安全需求\n- **風險**：估值偏高、競爭激烈\n\n### 🔄 Cercle (CRCL) - 目標價：$75\n**當前評級：中性**\n- **基本面**：數位支付滲透率提升，但成長放緩\n- **技術面**：區間整理，等待突破方向\n- **催化因素**：國際擴張、新產品推出\n- **風險**：法規變化、市場飽和\n\n### 🌐 Alphabet (GOOGL) - 目標價：$185\n**當前評級：買入**\n- **基本面**：廣告業務復甦、雲端成長加速\n- **技術面**：突破長期阻力，趨勢轉多\n- **催化因素**：Gemini AI商業化、YouTube Shorts變現\n- **風險**：反壟斷調查、競爭加劇\n\n### 🏭 VanEck半導體ETF (SMH) - 目標價：$265\n**當前評級：買入**\n- **基本面**：半導體週期底部確認，AI帶動新需求\n- **技術面**：指數型態良好，適合波段操作\n- **催化因素**：記憶體價格回升、車用晶片需求\n- **風險**：週期性波動、地緣政治\n\n### 🏗️ Vistra (VST) - 目標價：$125\n**當前評級：買入**\n- **基本面**：電力需求增長、再生能源轉型受惠\n- **技術面**：能源股輪動行情，技術面轉強\n- **催化因素**：數據中心用電需求、儲能發展\n- **風險**：監管變化、燃料成本波動\n\n### ⚡ IREN (加密貨幣挖礦) - 目標價：$45\n**當前評級：投機買入**\n- **基本面**：比特幣價格穩定、挖礦效率提升\n- **技術面**：高波動性，適合短線操作\n- **催化因素**：比特幣ETF需求、減半效應\n- **風險**：加密貨幣價格劇烈波動、監管風險\n\n---\n\n## 💼 操盤策略建議\n\n### 📊 投資組合配置建議\n- **成長股 (40%)**：TSLA、TSM、CRWD、GOOGL\n- **主題ETF (25%)**：SMH、相關科技ETF\n- **價值股 (20%)**：VRT、VST等基建股\n- **投機部位 (10%)**：IREN等高風險標的\n- **現金 (5%)**：保持適度流動性\n\n### 🎯 短期操作策略 (1-2週)\n1. **科技股回檔買進**：關注TSM、GOOGL技術面支撐位\n2. **能源股輪動**：VST若突破關鍵阻力可加碼\n3. **防禦性配置**：網路安全股CRWD可作為核心持股\n\n### 📅 中期布局策略 (1-3個月)\n1. **AI主題持續發酵**：重點關注晶片、雲端、應用層標的\n2. **電動車供應鏈**：選擇具備技術護城河的領導廠商\n3. **數據中心基建**：受惠於AI運算需求爆發\n\n### ⚠️ 風險控制要點\n- **停損設定**：個股下跌15%執行停損\n- **部位控制**：單一標的不超過總資產10%\n- **分批進場**：避免單點時間集中投入\n- **定期檢視**：每週評估持股基本面變化\n\n### 📈 關鍵技術指標監控\n- **RSI指標**：超買超賣區間操作參考\n- **均線系統**：20日、50日、200日移動平均線\n- **成交量**：價漲量增確認趨勢有效性\n- **支撐阻力**：關鍵價位突破的確認\n\n---\n\n## 🔮 未來一週展望\n\n### 重要事件日曆\n- **4/14 週一**：中國Q1 GDP數據公佈\n- **4/15 週二**：美國3月零售銷售數據\n- **4/16 週三**：聯準會褐皮書發布\n- **4/17 週四**：費城聯銀製造業指數\n- **4/18 週五**：美國3月成屋銷售數據\n\n### 市場預期\n- 整體市場可能維持區間整理格局\n- 科技股財報季前的位置調整\n- 關注通膨數據對聯準會政策的影響\n- 地緣政治發展對風險情緒的衝擊\n\n---\n\n**風險提示：股市投資有風險，過往績效不代表未來表現。投資人應根據自身風險承受能力，審慎評估投資決策。本分析僅供參考，不構成買賣建議。**\n\n*報告生成時間：2026年4月11日*  \n*資料來源：基於AI訓練數據模擬分析*"}];
+
+// ── 渲染歷史清單 ─────────────────────────────────────────────
+function renderHistory() {
+  const nav = document.getElementById('dateNav');
+  const list = document.getElementById('historyList');
+  
+  HISTORY.forEach((item, i) => {
+    // 上方日期按鈕
+    const btn = document.createElement('button');
+    btn.className = 'date-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = item.date.slice(5) + ' ' + item.weekday;
+    btn.onclick = () => switchReport(i, btn);
+    nav.appendChild(btn);
+    
+    // 側邊歷史列表
+    const li = document.createElement('div');
+    li.className = 'history-item' + (i === 0 ? ' active' : '');
+    li.innerHTML = `<div class="history-date">${item.date.slice(5)}</div><div class="history-day">${item.weekday}</div>`;
+    li.onclick = () => switchReport(i, null, li);
+    list.appendChild(li);
+  });
+}
+
+// ── 簡單 Markdown 轉 HTML ────────────────────────────────────
+function mdToHtml(text) {
+  let html = text;
+  // 標題
+  html = html.replace(/^#### (.+)$/gm, '<h4>$1</h4>');
+  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+  // 粗體/斜體
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  html = html.replace(/`(.+?)`/g, '<code>$1</code>');
+  // 引用
+  html = html.replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>');
+  // 分隔線
+  html = html.replace(/^---+$/gm, '<hr>');
+  // 清單
+  html = html.replace(/^[-•] (.+)$/gm, '<li>$1</li>');
+  html = html.replace(/^\d+\. (.+)$/gm, '<li class="num">$1</li>');
+  // 表格（簡化處理）
+  const lines = html.split('\n');
+  let result = [];
+  let inTable = false;
+  let firstRow = true;
+  for (let line of lines) {
+    if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
+      if (!inTable) { result.push('<div class="table-wrap"><table>'); inTable = true; firstRow = true; }
+      if (line.replace(/[|-:\s]/g, '') === '') continue; // 分隔行
+      const cells = line.split('|').slice(1,-1).map(c=>c.trim());
+      const tag = firstRow ? 'th' : 'td';
+      result.push('<tr>' + cells.map(c=>`<${tag}>${c}</${tag}>`).join('') + '</tr>');
+      firstRow = false;
+    } else {
+      if (inTable) { result.push('</table></div>'); inTable = false; firstRow = true; }
+      result.push(line || '<br>');
+    }
   }
+  if (inTable) result.push('</table></div>');
+  return result.join('\n');
 }
 
-function animateRSBars() {
-  document.querySelectorAll('.rs-bar').forEach(bar => {
-    const score = parseInt(bar.getAttribute('data-score'));
-    bar.style.width = score + '%';
-  });
+// ── 切換日報 ─────────────────────────────────────────────────
+function switchReport(index, btnEl, listEl) {
+  const content = document.getElementById('reportContent');
+  content.style.opacity = '0';
+  content.style.transform = 'translateY(8px)';
+  
+  setTimeout(() => {
+    const item = HISTORY[index];
+    content.innerHTML = mdToHtml(item.content);
+    content.style.transition = 'all 0.3s ease';
+    content.style.opacity = '1';
+    content.style.transform = 'translateY(0)';
+    
+    // 更新 active 狀態
+    document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.history-item').forEach(l => l.classList.remove('active'));
+    if (btnEl) btnEl.classList.add('active');
+    if (listEl) listEl.classList.add('active');
+    
+    // 滾到頂部
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, 200);
 }
 
-// Auto-animate RS bars when page loads (if RS tab is default — it's not, so on first click)
-// Also animate on initial load for hidden tabs by setting up IntersectionObserver
-document.addEventListener('DOMContentLoaded', function() {
-  // Pre-initialize bars at 0
-  document.querySelectorAll('.rs-bar').forEach(bar => {
-    bar.style.width = '0%';
-  });
-});
+// ── 初始化 ───────────────────────────────────────────────────
+renderHistory();
 </script>
-
 </body>
 </html>
